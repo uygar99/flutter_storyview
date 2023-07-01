@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../../data_classes/user.dart';
 import '../../data_classes/user_list.dart';
+import '../../routes/routes.dart';
 
 class HomeController extends GetxController {
   RxList<User> users = <User>[].obs;
@@ -20,9 +21,18 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
+  void storiesNavigator() {
+    Get.toNamed(Routes.stories, arguments: followingUsers);
+  }
+
   void toggleController(int index) {
     for (int i = 0; i < selectedFollowers.length; i++) {
       selectedFollowers[i] = i == index;
+    }
+    if (index == 0) {
+      followerOrExplore.value = true;
+    } else {
+      followerOrExplore.value = false;
     }
   }
 
@@ -31,8 +41,10 @@ class HomeController extends GetxController {
       List<int> followedUserIds = CustomStorage.getUser().follows;
       if (followedUserIds.contains(user.id)) {
         followingUsers.add(user);
+        CustomStorage.addFollower(user);
       } else {
         nonFollowingUsers.add(user);
+        CustomStorage.removeFollower(user);
       }
     }
   }
@@ -40,13 +52,13 @@ class HomeController extends GetxController {
   void follow(User user) {
     followingUsers.add(user);
     nonFollowingUsers.remove(user);
+    CustomStorage.addFollower(user);
   }
 
   void unfollow(User user) {
     followingUsers.remove(user);
     nonFollowingUsers.add(user);
-    print(followingUsers.length);
-    print(nonFollowingUsers.length);
+    CustomStorage.removeFollower(user);
   }
 
   void followOrUnfollow(User user) {

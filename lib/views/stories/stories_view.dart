@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_storyview/views/stories/stories_controller.dart';
 import 'package:get/get.dart';
 
-import '../../routes/routes.dart';
 import '../../widgets/bottom_navbar.dart';
 import '../../widgets/top_bar.dart';
 
@@ -29,11 +28,7 @@ class StoriesView extends GetView<StoriesController> {
                         children: [
                           Obx(() => InkWell(
                                 onTap: () {
-                                  Get.toNamed(Routes.storyDetail, arguments: [
-                                    controller.followingUsers,
-                                    controller.followingUsers[index].stories,
-                                    index
-                                  ]);
+                                  controller.navigateStory(index);
                                 },
                                 child: Stack(
                                   children: [

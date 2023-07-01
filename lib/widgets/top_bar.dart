@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../routes/routes.dart';
+
 class TopBar extends StatelessWidget implements PreferredSizeWidget {
   const TopBar({this.showShadow = true, super.key});
 
@@ -19,7 +21,7 @@ class TopBar extends StatelessWidget implements PreferredSizeWidget {
           child: IconButton(
             alignment: Alignment.centerLeft,
             onPressed: () {
-              Get.back(closeOverlays: true);
+              Get.offAllNamed(Routes.home);
             },
             color: Colors.grey,
             icon: const Icon(Icons.chevron_left),

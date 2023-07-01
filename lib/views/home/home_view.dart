@@ -3,7 +3,6 @@ import 'package:flutter_storyview/widgets/top_bar.dart';
 import 'package:get/get.dart';
 
 import '../../data_classes/user.dart';
-import '../../routes/routes.dart';
 import '../../widgets/bottom_navbar.dart';
 import 'home_controller.dart';
 
@@ -48,8 +47,7 @@ class HomeView extends GetView<HomeController> {
                                     ),
                                   ),
                                   onPressed: () {
-                                    Get.toNamed(Routes.stories,
-                                        arguments: controller.followingUsers);
+                                    controller.storiesNavigator();
                                   },
                                   child: const Text(
                                     "Stories",
@@ -99,11 +97,6 @@ class HomeView extends GetView<HomeController> {
       direction: Axis.horizontal,
       onPressed: (int index) {
         controller.toggleController(index);
-        if (index == 0) {
-          controller.followerOrExplore.value = true;
-        } else {
-          controller.followerOrExplore.value = false;
-        }
       },
       borderRadius: const BorderRadius.all(Radius.circular(8)),
       selectedBorderColor: Colors.grey[700],
