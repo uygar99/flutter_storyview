@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_storyview/widgets/custom_elevated_button.dart';
-import 'package:flutter_storyview/widgets/top_bar.dart';
+import 'package:flutter_storyview/widgets/top_bar_without_back.dart';
 import 'package:get/get.dart';
 
 import 'choose_account_controller.dart';
@@ -11,7 +11,7 @@ class ChooseAccountView extends GetView<ChooseAccountController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const TopBar(),
+        appBar: const TopBarWithoutBack(),
         body: Padding(
             padding: const EdgeInsets.all(8.0),
             child: SingleChildScrollView(

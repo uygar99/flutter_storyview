@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_storyview/widgets/top_bar.dart';
+import 'package:flutter_storyview/widgets/top_bar_without_back.dart';
 import 'package:get/get.dart';
 
 import '../../data_classes/user.dart';
@@ -12,7 +12,7 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const TopBar(),
+        appBar: const TopBarWithoutBack(),
         bottomNavigationBar: const BottomNavbar(index: 0, selected: true),
         body: Padding(
             padding: const EdgeInsets.all(8.0),

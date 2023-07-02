@@ -38,27 +38,45 @@ class HomeController extends GetxController {
 
   Future<void> followingOrNot() async {
     for (User user in users) {
-      List<int> followedUserIds = CustomStorage.getUser().follows;
-      if (followedUserIds.contains(user.id)) {
+      //List<int> followedUserIds = CustomStorage.getUser().follows;
+      if (CustomStorage.getFollowingUsers()!
+          .any((element) => element.id == user.id)) {
         followingUsers.add(user);
-        CustomStorage.addFollower(user);
+        if (!CustomStorage.getFollowingUsers()!
+            .any((element) => element.id == user.id)) {
+          CustomStorage.addFollower(user);
+        }
       } else {
-        nonFollowingUsers.add(user);
-        CustomStorage.removeFollower(user);
+        //nonFollowingUsers.add(user);
+        //CustomStorage.removeFollower(user);
       }
     }
+    followingUsers.value = CustomStorage.getFollowingUsers()!;
+    for (User user in users) {
+      if (!CustomStorage.getFollowingUsers()!
+          .any((element) => element.id == user.id)) {
+        nonFollowingUsers.value.add(user);
+      }
+    }
+    //nonFollowingUsers.value = CustomStorage.getNonFollowingUsers()!;
   }
 
   void follow(User user) {
     followingUsers.add(user);
     nonFollowingUsers.remove(user);
-    CustomStorage.addFollower(user);
+    if (!CustomStorage.getFollowingUsers()!
+        .any((element) => element.id == user.id)) {
+      CustomStorage.addFollower(user);
+    }
   }
 
   void unfollow(User user) {
     followingUsers.remove(user);
     nonFollowingUsers.add(user);
-    CustomStorage.removeFollower(user);
+    if (CustomStorage.getFollowingUsers()!
+        .any((element) => element.id == user.id)) {
+      CustomStorage.removeFollower(user);
+    }
   }
 
   void followOrUnfollow(User user) {
