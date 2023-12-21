@@ -16,8 +16,14 @@
         "content": "https://fotolifeakademi.com/uploads/2020/04/manzara-fotografi-cekmek-724x394.webp",
         "caption": "Peaceful hike through enchanting forest.",
         "isWatched": false
+      },
+      {
+        "title": "Hiking in the Forest",
+        "content": "https://media.licdn.com/dms/image/C4D03AQHV9HzdLT0AQA/profile-displayphoto-shrink_800_800/0/1657034141264?e=2147483647&v=beta&t=nHEEROW_G8i5NmuA1gXW1zj48zlfhVAEgI-_3e3BgSU",
+        "caption": "Peaceful hike through enchanting forest.",
+        "isWatched": false
       }
-    ],
+      ],
     "follows": [2, 3, 4]
   },
   {
@@ -90,9 +96,11 @@
     "pp": "profile5.jpg",
     "stories": [
       {
-        "title": "Adventure in the Mountains",
-        "content": "https://fotolifeakademi.com/uploads/2020/04/etkileyici-manzara-fotografi-cekmek.jpg",
-        "caption": "Breathtaking views and challenging trails.",
+        "isVideo": true,
+        "duration": 650,
+        "title": "Hiking in the Forest",
+        "content": "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4",
+        "caption": "Peaceful hike through enchanting forest.",
         "isWatched": false
       }
     ],
@@ -108,12 +116,6 @@
           "title": "Adventure in the Mountains",
           "content": "https://fotolifeakademi.com/uploads/2020/04/manzara-fotografi-cekmek-724x394.webp",
           "caption": "Breathtaking views and challenging trails.",
-          "isWatched": false
-        },
-        {
-          "title": "Exploring Ancient Ruins",
-          "content": "https://fotolifeakademi.com/uploads/2020/04/etkileyici-manzaralar-nasil-cekilir.webp",
-          "caption": "Marveling at rich history and architectural wonders.",
           "isWatched": false
         }
       ],

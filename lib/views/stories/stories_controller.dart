@@ -15,13 +15,13 @@ class StoriesController extends GetxController {
   }
 
   void navigateStory(int index) {
-    Get.toNamed(Routes.storyDetail,
-        arguments: [followingUsers, followingUsers[index].stories, index]);
+    Get.toNamed(Routes.storyDetail, arguments: [followingUsers, index]);
   }
 
   Future<void> loadData() async {
     for (var user in followingUsers) {
       isWatched.add(user.stories.last.isWatched);
     }
+    print(isWatched.toString());
   }
 }
